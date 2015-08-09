@@ -1,5 +1,5 @@
-var IMGURL = 'http://huyugui.f3322.org:3100/images/'
-var URL='http://huyugui.f3322.org:3100/'
+var IMGURL = 'http://huyugui.f3322.org:3000/images/'
+var URL='http://huyugui.f3322.org:3000/'
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state) {
