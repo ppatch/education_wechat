@@ -1,5 +1,5 @@
-var IMGURL = 'http://172.16.20.85:3000/images/'
-var URL='http://172.16.20.85:3000/'
+var IMGURL = 'http://huyugui.f3322.org:3100/images/'
+var URL='http://huyugui.f3322.org:3100/'
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state) {
@@ -315,7 +315,7 @@ angular.module('starter.controllers', ['ionic'])
         $scope.data={}
         $scope.rewardeds = {};
         $scope.imgurl = IMGURL;
-        $http.get('http://172.16.20.76:3000/rewarded')
+        $http.get(URL + 'rewarded')
             .success(function(d){
 
                 $scope.data.rewarded = d.rewarded;
@@ -416,7 +416,7 @@ angular.module('starter.controllers', ['ionic'])
             //$scope.date = new Date();
 
 
-            $http.get('http://172.16.20.85:3000/message')
+            $http.get(URL+'message')
                 .success(function (da) {
                     $scope.mymessage = da;
 
@@ -437,7 +437,7 @@ angular.module('starter.controllers', ['ionic'])
             $state.go("newmessage");
         };
         // 根据点击的链接，发送对应的请求
-        $http.get('http://172.16.20.85:3000/message/' + $stateParams._id).success(function (data) {
+        $http.get(URL+'message/' + $stateParams._id).success(function (data) {
             $scope.messageaa = data; // 将获取到的数据 通过$scope绑定成NG的数据模型
         });
 
@@ -480,7 +480,7 @@ angular.module('starter.controllers', ['ionic'])
             $state.go("newmessage");
         };
         // 根据点击的链接，发送对应的请求
-        $http.get('http://172.16.20.85:3000/message/' + $stateParams._id).success(function (data) {
+        $http.get(URL+'message/' + $stateParams._id).success(function (data) {
             $scope.messageaa = data; // 将获取到的数据 通过$scope绑定成NG的数据模型
         });
 
@@ -543,7 +543,7 @@ angular.module('starter.controllers', ['ionic'])
                     okText: '确定'
                 }).then(function (res) {
                     if (res == true) {
-                        $http.post('http://172.16.20.85:3000/message',$scope.text).success(function(){
+                        $http.post(URL+'message',$scope.text).success(function(){
 
                         })
                         $state.go('newmessage',{}, {reload: true});
@@ -599,7 +599,7 @@ angular.module('starter.controllers', ['ionic'])
             name3: '舞蹈类',
             name4: '音乐类'
         }
-        $http.get('http://172.16.20.76:3000/reqorder')
+        $http.get(URL+'reqorder')
             .success(function(da){
                 $scope.kc= da;
             })
@@ -758,7 +758,7 @@ angular.module('starter.controllers', ['ionic'])
                     op.fileName = $scope.up.video.substring($scope.up.video.lastIndexOf('/')
                             + 1,$scope.up.video.lastIndexOf('.'))
                         + Date.now() + $scope.up.video.substr($scope.up.video.lastIndexOf('.'));
-                    ft.upload($scope.up.video,encodeURI('http://172.16.20.76:3000/public/videos'),win,fail,op);
+                    ft.upload($scope.up.video,encodeURI(URL+'public/videos'),win,fail,op);
                     $scope.up.video = op.fileName;
                 }
 
@@ -771,7 +771,7 @@ angular.module('starter.controllers', ['ionic'])
                 });
                 $timeout(function(){
                     $ionicLoading.hide();
-                    $http.post('http://172.16.20.76:3000/upfile',$scope.up)
+                    $http.post(URL+'upfile',$scope.up)
                         .success(function(addrewardeds){
                             alert('提交成功');
                             $state.go('rewarded');
