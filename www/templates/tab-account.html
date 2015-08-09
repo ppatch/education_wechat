@@ -1,0 +1,54 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header " style="background: #9df5cc">
+        <div class="title">个人</div>
+    </div>
+    <ion-content class="sa" style="margin-top: 43px;background-image:url(img/tree3.jpg);">
+
+
+    <span href="#" class="item item-icon-left">
+      <i class="icon ion-ios-list-outline"></i>
+     个人资料
+    </span>
+
+    <span href="#" class="item item-icon-left">
+      <i class="icon ion-person-stalker"></i>
+     参加班级
+    </span>
+    <span href="#" class="item item-icon-left"ng-click="show1=!show1;show=false">
+      <i class="icon ion-email-unread"></i>
+     留言
+    </span>
+<div class="list padding-left padding-right" ng-show="show1">
+    <label class="item item-input ">
+        <textarea style="height: 150px"placeholder="请输入..."></textarea>
+    </label>
+    <div class=""align="center"style="margin-top: 5px">
+        <button  style="width: 100px;height: 30px"ng-click="refer()"ng-model= "suggest">提交</button>
+    </div>
+
+</div>
+
+
+
+
+
+    <span href="#" class="item item-icon-left" ng-click="show=!show;show1=false">
+      <i class="icon  ion-star"></i>
+     关于我们
+    </span>
+        <div style="padding-right: 30px;padding-left: 30px" ng-show="show">
+        <div class="item  " align="center">
+            <p>xxx机构</p>
+            <p>连接老师，家长，孩子的</p>
+            <p>学习及生活平台</p>
+           <p>让孩子</p>
+            <p>因为老师，爱上学习</p>
+            <p>地址：红旗镇青少年xxx培训机构</p>
+        </div>
+        <div class="item icon ion-android-compass" align=" center"ng-click="navigation()">
+            来我这
+        </div>
+        </div>
+
+    </ion-content>
+</ion-view>

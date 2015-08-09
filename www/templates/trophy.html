@@ -1,0 +1,22 @@
+<ion-view view-title="获奖展示">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="back()">返回</button>
+        <div class="title " side="left" >获奖展示</div>
+    </div>
+    <ion-content class="bg2" style="margin-top: 43px">
+
+            <div class="leftright" style="margin-top: 20px">
+        <ion-list >
+            <ion-item class="item-avatar item-icon-right "style="margin-bottom: 10px" ng-repeat="trophy in trophy"
+                      type="item-text-wrap"href="#/trophy/{{trophy.id}}">
+                <img ng-src="{{trophy.img1}}">
+                <h2>{{trophy.text}}</h2>
+                <p>获奖时间：{{trophy.time}}</p>
+                <p>获奖学生：{{trophy.name}}</p>
+                <i class="icon ion-chevron-right icon-accessory"></i>
+            </ion-item>
+        </ion-list>
+            </div>
+        </div>
+    </ion-content>
+</ion-view>

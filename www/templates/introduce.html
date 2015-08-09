@@ -1,0 +1,26 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="back()">返回</button>
+        <div class="title " side="left" >机构介绍</div>
+    </div>
+    <ion-tabs class="tabs-striped tabs-top ">
+        <ion-tab title="本校简介">
+            <ion-view>
+                <ion-content class="padding-right padding-left bg2">
+
+                    <img  style="width: 100%;" ng-src="{{introduce.face}}">
+                    <p style="text-indent: 2em">{{introduce.text}}</p>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="品牌简介">
+            <ion-view>
+                <ion-content class="padding-right padding-left bg2" >
+                    <img  style="width: 100%" ng-src="{{introduce.face1}}">
+                    <p style="text-indent: 2em">{{introduce.text1}}
+                    </p>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+</ion-view>

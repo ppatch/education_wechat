@@ -1,0 +1,41 @@
+<ion-view view-title="手机号码登录" hide-back-button="true">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="back()">返回</button>
+        <div class="title" side="left">手机号码登录</div>
+    </div>
+
+    <ion-content class="bg2">
+
+        <div class="item item-divider">
+            <h2 class="title " align="center">{{ messageaa.title }}</h2>
+        </div>
+        <div class="item item-avatar">
+            <img src="img/dog1.jpg">
+
+            <div class="text-muted" style="font-size: 10px;">{{ messageaa.date | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
+            <span style="color: deepskyblue">林永康:</span>
+
+            <span class="item-text-wrap"style="font-size: 13px">{{ messageaa.content }}</span>
+        </div>
+
+        <div class="padding-right padding-left">
+
+            <div class="item  item-avatar" ng-repeat="answer in messageaa.answer">
+                <img src="img/dog2.jpg">
+                <div class="text-muted" style="font-size: 10px;">{{ answer.date | date: 'yyyy-MM-dd HH:mm:ss' }}
+                </div>
+
+                <span style="color: deepskyblue">李小花:</span>
+                <span style="font-size: 12px"class="item-text-wrap">{{ answer.answer }}</span>
+            </div>
+
+
+        </div>
+        <form ng-submit="form.submit()"class=" padding">
+            <textarea class="item item-text-wrap" ng-model="form.answer"  style="width: 100%;height: 80px" placeholder="我想说.."></textarea>
+            <!--<span ng-model="form.date">{{date | date:'MM/dd hh:mm:ss'}}</span>-->
+            <button  style="float: right;width: 100%" class="button button-balanced button-small pull-right">发表评论</button>
+        </form>
+    </ion-content>
+
+</ion-view>

@@ -1,0 +1,21 @@
+
+<ion-view view-title="选择位置" hide-back-button="true">
+    <ion-nav-bar  class="bar-dark">
+        <ion-nav-back-button>
+        </ion-nav-back-button>
+        <ion-nav-buttons side="left">
+            <button  class="button  button-clear " menu-toggle="left" ng-click="fanhui()">
+                返回
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <ion-list ng-repeat="ds in data">
+            <ion-item ng-click="final()">
+                <img src="{{ds.image}}"  style="width: 30%;float: left">
+                <h2 style="float: left;margin-left: 20px">{{ds.name}} </h2>
+            </ion-item>
+        </ion-list>
+    </ion-content>
+
+</ion-view>

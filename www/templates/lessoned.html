@@ -1,0 +1,36 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear icon ion ion-ios-arrow-left "ng-click="back()">返回</button>
+        <div class="title">班级信息</div>
+    </div>
+    <ion-content class="padding bg2" style="margin-top:20px;padding: 15px">
+        <div class="card">
+            <div class="item item-divider" align="center">{{lessoned.name}}</div>
+
+            <div class="item item-text-wrap">
+
+                <p><span>学费：</span><span class="assertive">{{lessoned.price}}</span> <span style="float: right">老师：{{lessoned.teacher}}</span></p>
+
+                <p><span>适合年龄：{{lessoned.age}}</span>
+                    <span style="float: right">课次：{{lessoned.keci}}  节</span>
+                </p>
+
+                <p>报道时间：{{lessoned.time1}}</p>
+
+                <p>授课地点：{{lessoned.place}}</p>
+
+                <p>授课时间：{{lessoned.date}}{{lessoned.time}}</p>
+
+                <p> 课堂简介：{{lessoned.text}}</p>
+            </div>
+            <div class="item item-divider" align="center"><p>内容及目标</p></div>
+            <div  align="center">学习内容</div>
+            <div class="item item-text-wrap"><p>{{lessoned.content}}</p></div>
+            <div  align="center">教学目标</div>
+            <div class="item item-text-wrap"><p>{{lessoned.target}}</p></div>
+            <div class="item item-divider" align="center"><p>课程特色</p></div>
+            <div class="item item-text-wrap"><p>{{lessoned.Text}}</p></div>
+
+        </div>
+    </ion-content>
+</ion-view>

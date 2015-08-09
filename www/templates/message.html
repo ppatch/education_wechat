@@ -1,0 +1,26 @@
+<ion-view  view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1" >
+            <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="back()">返回</button>
+            <div class="title" side="left" >招聘信息</div>
+    </div>
+    <ion-content style="margin-top: 43px;"class="padding bg2">
+        <ion-list>
+            <div class="list padding-left padding-right padding-top" type="item-text-wrap" ng-repeat="message in messages">
+
+
+                <div class=" item    item-divider">
+                    <div align="center">{{message.name}}</div>
+                </div>
+                <div class="item item-body">
+                    <div>从事行业：{{message.time}}</div>
+                    <div> 学历：{{message.diplomas}}</div>
+                    <div>工薪：{{message.price}}</div>
+                    <div>要求：{{message.ask}}</div>
+                    <div  class="padding-top" >联系电话: <a ng-href="tel:13726278181">{{message.phone}}</a></div>
+                </div>
+            </div>
+
+
+        </ion-list>
+    </ion-content>
+</ion-view>

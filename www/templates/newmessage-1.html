@@ -1,0 +1,34 @@
+<ion-view view-title="添加留言">
+    <div class="bar bar-header bg1" >
+        <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="back()">返回</button>
+        <div class="title" side="left" >留言</div>
+
+    </div>
+    <ion-content class="bg2"style="margin-top: 43px;padding: 20px">
+        <div class="list">
+            <label class="item item-input item-select">
+                <div class="input-label">
+                    您要发表的留言类型：
+                </div>
+                <select ng-model="text.category">
+                    <option ></option>
+                    <option>关于课程</option>
+                    <option >关于学生</option>
+                    <option>关于报名</option>
+                    <option>其他</option>
+                </select>
+            </label>
+
+            <div class=" item item-input">
+
+                <input  type="text" style="text-align: center" placeholder="标题"ng-model="text.title"/>
+            </div>
+            <div class=" item item-input">
+                <textarea type="text" class="item-text-wrap" placeholder="内容"style="height: 200px;text-indent: 2em"ng-model="text.content"></textarea>
+            </div>
+        </div>
+        <div class="list ">
+            <button class="button button-full button-balanced" ng-click="sendFeedback(text)">发表</button>
+        </div>
+    </ion-content>
+</ion-view>

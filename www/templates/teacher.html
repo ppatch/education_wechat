@@ -1,0 +1,48 @@
+<ion-view view-title="蓝天白云培训机构">
+  <div class="bar bar-header bg1">
+    <div class="button button-clear ion-ios-arrow-left"ng-click="back()">返回</div>
+    <div  class="title ">教师简介</div>
+  </div>
+  <ion-content class="bg2" style="margin-top: 35px">
+    <div >
+      <ul>
+        <li >
+          <ion-slide-box does-continue="true" show-pager="true" auto-play="true"slide-interval="2000">
+            <ion-slide>
+              <div>
+                <img src="{{teacher.face1}}" class="other-img1">
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div>
+                <img src="{{teacher.face2}}" class="other-img1">
+              </div>
+            </ion-slide>
+            <ion-slide>
+              <div>
+                <img src="{{teacher.face3}}" class="other-img1">
+              </div>
+            </ion-slide>
+          </ion-slide-box>
+        </li>
+      </ul>
+    </div>
+    <div  style="color: #e42012;font-size: 25px;text-align: center">{{teacher.name}}</div>
+    <p align="center" class="padding-top">{{teacher.sex}}  {{teacher.age}}岁</p>
+    <p style="text-align: center">{{teacher.class}}</p>
+    <!--<div class="list padding bg2" >-->
+
+      <div align="center" class="item item-body bg2">
+        <div >老师说</div>
+        <p type="item-text-wrap">{{teacher.say}}</p>
+      </div>
+
+      <div class="item bg2">
+        <div align="center" >教学资质</div>
+        <br/>
+        毕业院校：<span style="float: right">{{teacher.school}}</span></div>
+      <div class="item">专业： <span style="float: right">{{teacher.major}}</span></div>
+      <div class="item">教培行业工作：<span style="float: right">{{teacher.time}}</span></div>
+      </div>
+  </ion-content>
+</ion-view>

@@ -1,0 +1,83 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1" >
+        <div class="title ">蓝天白云培训机构</div>
+    </div>
+    <ion-content class="sa bg2" style="margin-top: 43px;">
+        <div class="da">
+
+            <div>
+                <ul>
+                    <li>
+                        <ion-slide-box does-continue="true" show-pager="true" auto-play="true" slide-interval="2000">
+                            <ion-slide>
+                                <div>
+                                    <img src="img/s1.png" class="other-img">
+                                </div>
+                            </ion-slide>
+                            <ion-slide>
+                                <div>
+                                    <img src="img/s2.png" class="other-img">
+                                </div>
+                            </ion-slide>
+                            <ion-slide>
+                                <div>
+                                    <img src="img/s3.png" class="other-img">
+                                </div>
+                            </ion-slide>
+                        </ion-slide-box>
+                    </li>
+                </ul>
+            </div>
+            <!--机构介绍-->
+            <div class="seven" ng-click="goto1()">
+                <b><span  class="icon ion-ios-list color2"style="font-size: 70px;"></span> </b>
+                <span class="b1 color2">{{dash.name1}}</span>
+            </div>
+            <!--课程-->
+            <div class=" seven" ng-click="goto3()">
+                <b><span  class="icon ion-android-menu color2"style="font-size: 70px"></span> </b>
+                <span class="b1 color2">{{dash.name3}}</span>
+            </div>
+            <!--师资-->
+            <div class=" seven" ng-click="goto5()">
+                <b><span  class="icon ion-android-people color2"style="font-size: 70px"></span> </b>
+                <span class="b1 color2">{{dash.name5}}</span>
+            </div>
+            <!--最新动态-->
+            <div class="five" ng-click="goto4()">
+                <b><span  class="icon ion-social-chrome color2"style="font-size: 70px"></span> </b>
+                <span class="b1 color2">{{dash.name4}}</span>
+            </div>
+            <!--活动-->
+            <div class="five" ng-click="goto2()">
+                <b><span  class="icon ion-android-walk color2"style="font-size: 70px"></span> </b>
+                <span class="b1 color2">{{dash.name2}}</span>
+            </div>
+        </div>
+        <!--招聘信息-->
+        <div class="five" ng-click="goto7()">
+            <b><span  class="icon ion-clipboard color2"style="font-size: 70px"></span> </b>
+            <span class="b1 color2">{{dash.name7}}</span>
+        </div>
+        <!--留言-->
+        <div class="eight" ng-click="goto9()">
+            <b><span  class="icon ion-ios-chatboxes color2"style="font-size: 70px"></span> </b>
+            <span class="b2 color2">{{dash.name9}}</span>
+        </div>
+        <!--机构地址-->
+        <div class="eight" ng-click="goto6()">
+            <b><span  class="icon ion-android-pin color2"style="font-size: 70px"></span> </b>
+            <span class="b2 color2">{{dash.name6}}</span>
+        </div>
+        <!--联系我们-->
+        <div class="eight" >
+            <a  ng-href="tel:13726278181">
+            <b><span  class="icon ion-ios-telephone color2"style="font-size: 70px"></span> </b>
+            <span class="b1 color2">{{dash.name8}}</span>
+            </a>
+        </div>
+
+
+
+    </ion-content>
+</ion-view>

@@ -1,0 +1,26 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear icon ion ion-ios-arrow-left"ng-click="back()">返回</button>
+        <div class="title ">活动公告</div>
+    </div>
+    <ion-content style="margin-top: 43px"class="bg2" >
+
+        <div class="leftright" style="margin-top: 20px">
+            <ion-list>
+                <div class="list padding-left padding-right padding-top" type="item-text-wrap" ng-repeat="activity in activitys.activity">
+
+
+                    <div class=" item    item-divider" >
+                        <div align="center">{{activity.title}}</div>
+                    </div>
+                    <div class="item item-body">
+                        <div>优惠课程：{{activity.kecheng}}</div>
+                        <div> 授课老师：{{activity.teacher}}</div>
+                        <div>现价（原价）：{{activity.price}}</div>
+                        <div>课程时间：{{activity.time}}</div>
+                    </div>
+                </div>
+            </ion-list>
+        </div>
+    </ion-content>
+</ion-view>

@@ -1,0 +1,43 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1" >
+        <button class="button button-clear icon ion ion-ios-arrow-left"ng-click="back()">返回</button>
+        <div class="title ">班级信息</div>
+    </div>
+    <ion-content class="padding bg2" style="margin-top:20px;padding: 15px">
+        <div class="card">
+            <div class="item item-divider" align="center">{{train.name}}</div>
+
+            <div class="item item-text-wrap">
+
+                <p><span>学费：</span><span class="assertive">{{train.price}}</span> <span style="float: right">老师：{{train.teacher}}</span>
+                </p>
+
+                <p><span>适合年龄：{{train.age}}</span>
+                    <span style="float: right">课次：{{train.keci}}  节</span>
+                </p>
+
+                <p>报道时间：{{train.time1}}</p>
+
+                <p>授课地点：{{train.place}}</p>
+
+                <p>授课时间：{{train.date}}{{train.time}}</p>
+
+                <p> 课堂简介：{{train.text}}</p>
+            </div>
+            <div class="item item-divider" align="center"><p>内容及目标</p></div>
+            <div align="center">学习内容</div>
+            <div class="item item-text-wrap"><p>{{train.content}}</p></div>
+            <div align="center">教学目标</div>
+            <div class="item item-text-wrap"><p>{{train.target}}</p></div>
+            <div class="item item-divider" align="center"><p>课程特色</p></div>
+            <div class="item item-text-wrap"><p>{{train.Text}}</p></div>
+        </div>
+    </ion-content>
+    <div class="bar bar-footer bg2">
+        <div class="button-bar bg2">
+            <a class="button  button-clear  "ng-click="sendFeedback(train)">
+                <div class="positive" >预约报名</div>
+            </a>
+        </div>
+    </div>
+</ion-view>

@@ -1,0 +1,35 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1" >
+        <button class="button button-clear ion-ios-arrow-left" menu-toggle="left" ng-click="return()">返回</button>
+        <div class="title " side="left" >获奖简介</div>
+    </div>
+    <ion-content class="padding bg2" style="margin-top: 33px;">
+        <div class="Carousel" >
+            <ul>
+                <li class="carousel">
+                    <ion-slide-box does-continue="true" show-pager="false" auto-play="true">
+                        <ion-slide>
+                            <div>
+                                <img src="{{trophy.img1}}" class="other-img2">
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div>
+                                <img src="{{trophy.img2}}" class="other-img2">
+                            </div>
+                        </ion-slide>
+                        <ion-slide>
+                            <div>
+                                <img src="{{trophy.img3}}" class="other-img2">
+                            </div>
+                        </ion-slide>
+                    </ion-slide-box>
+                </li>
+            </ul>
+        </div>
+          <div style="color: #ff131d;font-size: 17px;margin-bottom: 10px" align="center" >{{trophy.text}}</div>
+        <div>获奖者： {{trophy.name}}</div>
+        <div>获奖时间： {{trophy.time}}</div>
+        <p class="intr-p">简述： {{trophy.text1}}</p>
+    </ion-content>
+</ion-view>
