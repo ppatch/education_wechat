@@ -52985,7 +52985,7 @@ IonicModule
       $scope.$on('$ionicView.beforeEnter', function(ev, viewData) {
         if (viewData.enableBack) {
           var sideMenuCtrl = $element.inheritedData('$ionSideMenusController');
-          if (!sideMenuCtrl.enableMenuWithBackViews()) {
+          if (sideMenuCtrl & !sideMenuCtrl.enableMenuWithBackViews()) {
             $element.addClass('hide');
           }
         } else {
