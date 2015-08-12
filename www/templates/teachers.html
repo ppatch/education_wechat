@@ -22,9 +22,9 @@
             <ion-view>
                 <ion-content class="bg2">
 
-                    <div class="leftright" style="margin-top: 20px">
-                        <ion-list >
-                            <ion-item class="item-avatar item-icon-right "style="margin-bottom: 10px" ng-repeat="hj in data.rewarded"
+                    <div class="leftright" style="margin-top: 20px" >
+                        <ion-list  >
+                            <ion-item class="item-avatar item-icon-right "style="margin-bottom: 10px" ng-repeat="hj in data "  ng-click="messageChild(hj)"
                                       type="item-text-wrap">
                                 <img ng-src="{{imgurl+hj.image[0]}}">
                                 <h2>{{hj.title}}</h2>

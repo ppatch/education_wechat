@@ -1,5 +1,9 @@
+//var IMGURL = 'http://172.16.20.76:3000/images/'
+//var VIDEOURL = 'http://172.16.20.76:3000/images/';
+//var URL = 'http://172.16.20.85:3000/';
+var URL = 'http://huyugui.f3322.org:3100/';
 var IMGURL = 'http://huyugui.f3322.org:3100/images/'
-var URL='http://huyugui.f3322.org:3100/'
+var VIDEOURL = 'http://huyugui.f3322.org:3100/images/';
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state) {
@@ -36,10 +40,10 @@ angular.module('starter.controllers', ['ionic'])
             $state.go("trends");
         }
         $scope.goto5 = function () {
-            $state.go("teachers" );
+            $state.go("teachers");
         }
         $scope.goto6 = function () {
-            $state.go("navigation" );
+            $state.go("navigation");
         }
         $scope.goto7 = function () {
             $state.go("message");
@@ -52,59 +56,38 @@ angular.module('starter.controllers', ['ionic'])
         }
     })
 //活动
-    .controller('ActivityCtrl', function ($scope,$ionicPopup, $stateParams, $http,Activity,$state,User) {
-        $scope.imgurl = IMGURL;
-        $scope.activitys = {}
-        $http.get(URL+'activity')
-            .success(function(data){
-                $scope.activitys.activity = data.activity;
-          console.log(data)
-                $scope.activitys = data;
-                $scope.activitys.activity = data.activity;
-            })
-
-
-
-
-        //$scope.activity = Activity.all();
+    .controller('ActivityCtrl', function ($scope, $ionicPopup, $stateParams, $http, Activity, $state, User) {
         $scope.back = function () {
             $state.go("home");
         }
-        //$scope.activitys={
-        //    a1:'./img/f1.jpg',
-        //    a2:'./img/f2.jpg',
-        //    a3:'./img/f3.jpg',
-        //    a4:'./img/f4.jpg',
-        //    a5:'./img/f5.jpg',
-        //    a6:'./img/f6.jpg'
-        //}
-        //$scope.sendFeedback = function (train) {
-        //    $scope.currentSong = angular.copy(train);
-        //    User.addFruitToFavorites($scope.currentSong);
-        //    $ionicPopup.confirm({
-        //        title: '提示',
-        //        template: '切换到报名页面吗？',
-        //        cancelText: '取消',
-        //        okText: '确定'
-        //    }).then(function (res) {
-        //        if (res == true) {
-        //            $state.go('products');
-        //        } else {
-        //
-        //        }
-        //    });
-        //}
+        $scope.a1 = {show: true};
+        $scope.a2 = {show: true};
+        $scope.a3 = {show: true};
+        $scope.a4 = {show: true};
+        $scope.a5 = {show: true};
+        $scope.a6 = {show: true};
+
+        $scope.activitys1 = {};
+        $scope.activitys2 = {};
+        $scope.imgurl = IMGURL;
+        $http.get(URL+'activity')
+            .success(function (data) {
+                $scope.activitys1 = data;
+            });
+        $http.get(URL+'activityother')
+            .success(function (data) {
+                $scope.activitys2 = data;
+            });
     })
 //活动子页面
-    .controller('ActivityDetailCtrl', function($scope, $stateParams, $state,Activity) {
+    .controller('ActivityDetailCtrl', function ($scope, $stateParams, $state, Activity) {
         $scope.activity = Activity.get($stateParams.activityId);
-        $scope.return = function(){
+        $scope.return = function () {
             $state.go("activity");
         }
     })
 //机构介绍
-    .controller('IntroduceCtrl', function ($scope, $state,$cordovaImagePicker) {
-
+    .controller('IntroduceCtrl', function ($scope, $state, $cordovaImagePicker) {
 
 
         $scope.pickImage = function () {
@@ -121,7 +104,8 @@ angular.module('starter.controllers', ['ionic'])
                 .then(function (results) {
                     //console.log(results);
                     $scope.imgSrc = results[0]
-                })}
+                })
+        }
 
 
         $scope.back = function () {
@@ -178,7 +162,7 @@ angular.module('starter.controllers', ['ionic'])
         }, {enableHighAccuracy: true})
     })
 //报名
-    .controller('ProductsCtrl', function ($scope,$http, $ionicPopup, $state, Train1, Train2, Train3, Train4, $stateParams, User) {
+    .controller('ProductsCtrl', function ($scope, $http, $ionicPopup, $state, Train1, Train2, Train3, Train4, $stateParams, User) {
         $scope.train1 = Train1.all();
         $scope.train2 = Train2.all();
         $scope.train3 = Train3.all();
@@ -201,99 +185,47 @@ angular.module('starter.controllers', ['ionic'])
             });
         }
         $scope.myfavorites = User.myfavorites;
-        $scope.user = {name:'',phone:'',kecheng:''}
-        //$scope.user.class = $scope.myfavorites.name;
+        $scope.user = {name: '', phone: '', kecheng: '', apply: '等待审核'}
         $scope.ensure = function () {
 
-            if ($scope.user.name != '' && $scope.user.phone != ''&& ($scope.user.kecheng == '英语'||$scope.user.kecheng == '数学'||$scope.user.kecheng == '法语'
-                ||$scope.user.kecheng == '粤语'||$scope.user.kecheng == '俄语'||
-                $scope.user.kecheng == '语文'||$scope.user.kecheng == '硬笔字'||$scope.user.kecheng == '芭蕾舞'
-                ||$scope.user.kecheng == '恰恰'||$scope.user.kecheng == '爵士'||$scope.user.kecheng == '钢琴'||
-                $scope.user.kecheng == 'hip-hop'||$scope.user.kecheng == '吉他'||$scope.user.kecheng == '古筝'||$scope.user.kecheng == '美术'
-                ||$scope.user.kecheng == '口琴')) {
+            if ($scope.user.name != '' && $scope.user.phone != '' && ($scope.user.kecheng == '英语' || $scope.user.kecheng == '数学' || $scope.user.kecheng == '法语'
+                || $scope.user.kecheng == '粤语' || $scope.user.kecheng == '俄语' ||
+                $scope.user.kecheng == '语文' || $scope.user.kecheng == '硬笔字' || $scope.user.kecheng == '芭蕾舞'
+                || $scope.user.kecheng == '恰恰' || $scope.user.kecheng == '爵士' || $scope.user.kecheng == '钢琴' ||
+                $scope.user.kecheng == 'hip-hop' || $scope.user.kecheng == '吉他' || $scope.user.kecheng == '古筝' || $scope.user.kecheng == '美术'
+                || $scope.user.kecheng == '口琴')) {
                 //$state.go('newmessage');
                 alert('恭喜您，已提交您的预约，等待商家确定')
                 $state.go('lesson');
-                $http.post('http://172.16.20.76:3000/order',$scope.user)
-                    .success(function(){})
-            }else {
-                if ($scope.user.name == '' && $scope.user.phone == ''&& $scope.user.kecheng == '')
-                {
+                $http.post(URL+'order', $scope.user)
+                    .success(function () {
+                    })
+            } else {
+                if ($scope.user.name == '' && $scope.user.phone == '' && $scope.user.kecheng == '') {
                     $ionicPopup.alert({
                         title: '提示',
                         template: '请输入您的相关信息'
                     });
                 }
-                if ($scope.user.phone == ''&&$scope.user.name!=''&&$scope.user.kecheng!='') {
+                if ($scope.user.phone == '' && $scope.user.name != '' && $scope.user.kecheng != '') {
                     $ionicPopup.alert({
                         title: '提示',
                         template: '请输入您的电话号码'
                     });
                 }
-                if ($scope.user.name == ''&&$scope.user.phone!=''&&$scope.user.kecheng!='') {
+                if ($scope.user.name == '' && $scope.user.phone != '' && $scope.user.kecheng != '') {
                     $ionicPopup.alert({
                         title: '提示',
                         template: '请输入您的名字'
                     });
                 }
-                if ($scope.user.kecheng == ''&&$scope.user.name!=''&&$scope.user.phone!='') {
+                if ($scope.user.kecheng == '' && $scope.user.name != '' && $scope.user.phone != '') {
                     $ionicPopup.alert({
                         title: '提示',
                         template: '请输入您要报的课程'
                     });
-                }}
-
-
-
-
-
-            //$scope.user = {}
-            //$scope.ensure = function () {
-            //$http.get('http://localhost:3000/order',{
-            //        parmas:{
-            //              name:$scope.user.name,
-            //              class:$scope.myfavorites.name
-            //                    }
-            //     })
-            //    .success(function(){
-            //
-            //if ($scope.user.name != '' && $scope.user.phone != '') {
-            //    $ionicPopup.alert({
-            //        title: '提示',
-            //        template: '报名成功，我们将在三个工作日内联系您'
-            //    }).then(function (res) {
-            //        if (res == true) {
-            //        $state.go('home')
-            //            .then(function (train) {
-            //                User.remove(train);
-            //            })
-            //        } else {
-            //
-            //        }
-            //    });
-            //} else {
-            //    if ($scope.user.name == '' && $scope.user.phone == '') {
-            //        $ionicPopup.alert({
-            //            title: '提示',
-            //            template: '请输入您的相关信息'
-            //        });
-            //    }
-            //    if ($scope.user.name !='' && $scope.user.phone == '') {
-            //        $ionicPopup.alert({
-            //            title: '提示',
-            //            template: '请输入您的电话号码'
-            //        });
-            //    }
-            //    if ($scope.user.name == '' && $scope.user.phone != '') {
-            //        $ionicPopup.alert({
-            //            title: '提示',
-            //            template: '请输入您的名字'
-            //        });
-            //    }
-            //
-            //}
-            //    })
-
+                }
+            }
         }
 
         $scope.test = function () {
@@ -308,22 +240,23 @@ angular.module('starter.controllers', ['ionic'])
         }
     })
 //全体老师页面
-    .controller('TeachersCtrl', function ($scope, $stateParams, $http,Teacherss, $state,Trophy) {
+    .controller('TeachersCtrl', function ($scope, $http, Teacherss, $state, Trophy) {
+        //分类 父集
 
 
         //获奖展示
-        $scope.data={}
+        $scope.data = {}
         $scope.rewardeds = {};
         $scope.imgurl = IMGURL;
-        $http.get(URL + 'rewarded')
-            .success(function(d){
-
-                $scope.data.rewarded = d.rewarded;
-                //$scope.activitys.name = data.name;
+        $http.get(URL+'rewarded')
+            .success(function (d) {
+                $scope.data= d;
             })
 
-
-
+        $scope.messageChild = function(message){
+            var params = angular.toJson(message);
+            $state.go('rewarded',{'params': params});
+        }
         $scope.teachers = Teacherss.all();
         $scope.back = function () {
             $state.go('home');
@@ -338,7 +271,7 @@ angular.module('starter.controllers', ['ionic'])
         $scope.trophy = Trophy.all();
     })
 //全体老师子页面
-    .controller('Teachers-detailCtrl', function ($scope, $stateParams, Teacherss, $state,Trophy) {
+    .controller('Teachers-detailCtrl', function ($scope, $stateParams, Teacherss, $state, Trophy) {
         $scope.teacher = Teacherss.get($stateParams.teacherId);
         $scope.trophy = Trophy.get($stateParams.trophyId);
         $scope.back = function () {
@@ -346,26 +279,16 @@ angular.module('starter.controllers', ['ionic'])
         }
     })
 //获奖展示
-    .controller('TrophyCtrl', function ($scope, $stateParams, Trophy, $state) {
-        $scope.trophy1 = {
-            f1: './img/f1.jpg',
-            f2: './img/f2.jpg',
-            f3: './img/f3.jpg',
-            f4: './img/f4.jpg',
-            f5: './img/f5.jpg'
-        }
-        $scope.trophy = Trophy.all();
+    .controller('RewardedCtrl', function ($scope,$stateParams, $http, $state) {
+        //分类
+        $scope.imgurl = IMGURL;
+        $scope.aa = angular.fromJson($stateParams.params);
+        console.log($scope.aa)
         $scope.back = function () {
             $state.go("home");
         }
     })
-//获奖展示子页
-    .controller('TrophyDetailCtrl', function ($scope, $stateParams, Trophy, $state) {
-        $scope.trophy = Trophy.get($stateParams.trophyId);
-        $scope.return = function () {
-            $state.go("teachers");
-        }
-    })
+
 //个人页面控制器
     .controller('AccountCtrl', function ($scope, $ionicPopup, $state) {
         $scope.settings = {
@@ -402,78 +325,23 @@ angular.module('starter.controllers', ['ionic'])
 
     })
 //留言展示
-    .controller('NewmessageCtrl', function ($scope,$http,$state,Message) {
-        $scope.$on('$ionicView.beforeEnter', function(viewInfo, state)  {
-
-
+    .controller('NewmessageCtrl', function ($scope, $http, $state, Message) {
+        $scope.$on('$ionicView.beforeEnter', function (viewInfo, state) {
             $scope.back = function () {
                 $state.go('home');
             }
             $scope.newmessage = function () {
                 $state.go('newmessage-1');
             }
-            //$scope.mymessage = Message.mymessage;
-            //$scope.date = new Date();
-
-
             $http.get(URL+'message')
                 .success(function (da) {
                     $scope.mymessage = da;
 
                 });
-
-            //$scope.loadData= function() {
-            //
-            //}
-            //$scope.loadData();
-
         })
     })
-//单个留言（不能回复）
-    .controller('formessageCtrl', function ($scope, $state, $http, $rootScope, $stateParams, $ionicLoading, $timeout,$routeParams) {
-        //$scope.imgurl = IMGURL;
-
-        $scope.back = function () {
-            $state.go("newmessage");
-        };
-        // 根据点击的链接，发送对应的请求
-        $http.get(URL+'message/' + $stateParams._id).success(function (data) {
-            $scope.messageaa = data; // 将获取到的数据 通过$scope绑定成NG的数据模型
-        });
-
-        $scope.form = {answer:'',date:new Date()};
-        $scope.form.submit = function () {
-            if ($scope.form.answer == '') {
-                alert('空的就不要提交啦')
-            } else {
-                $ionicLoading.show({
-                    content: 'Loading',
-                    animation: 'fade-in',
-                    showBackdrop: true,
-                    maxWidth: 200,
-                    showDelay: 0
-                });
-                $timeout(function () {
-                    $ionicLoading.hide();
-                    $http.post(URL + 'message/' + $stateParams._id + '/answer', {answer:$scope.form.answer,date:$scope.form.date})
-                        .success(function (data) {
-                            $scope.messageaa.answer.push({
-                                answer: $scope.form.answer,
-                                date:$scope.form.date
-
-                            });
-                            $state.go('newmessage')
-                        }).error(function (error) {
-                            alert(error);
-                        }).finally();
-                }, 2000);
-            }
-        }
-        $scope.date = new Date();
-
-    })
 //单个留言（能回复）
-    .controller('formessage1Ctrl', function ($scope, $state, $http, $rootScope, $stateParams, $ionicLoading, $timeout,$routeParams) {
+    .controller('formessage1Ctrl', function ($scope, $state, $http, $rootScope, $stateParams, $ionicLoading, $timeout, $routeParams) {
         //$scope.imgurl = IMGURL;
 
         $scope.back = function () {
@@ -484,7 +352,7 @@ angular.module('starter.controllers', ['ionic'])
             $scope.messageaa = data; // 将获取到的数据 通过$scope绑定成NG的数据模型
         });
 
-        $scope.form = {answer:'',date:new Date()};
+        $scope.form = {answer: '', date: new Date()};
         $scope.form.submit = function () {
             if ($scope.form.answer == '') {
                 alert('空的就不要提交啦')
@@ -498,11 +366,14 @@ angular.module('starter.controllers', ['ionic'])
                 });
                 $timeout(function () {
                     $ionicLoading.hide();
-                    $http.post(URL + 'message/' + $stateParams._id + '/answer',{answer:$scope.form.answer,date:$scope.form.date})
+                    $http.post(URL+'message/' + $stateParams._id + '/answer', {
+                        answer: $scope.form.answer,
+                        date: $scope.form.date
+                    })
                         .success(function (data) {
                             $scope.messageaa.answer.push({
                                 answer: $scope.form.answer,
-                                date:$scope.form.date
+                                date: $scope.form.date
                             });
                             $state.go('newmessage')
                         }).error(function (error) {
@@ -515,12 +386,12 @@ angular.module('starter.controllers', ['ionic'])
 
     })
 //添加留言
-    .controller('Newmessage-1Ctrl', function ($scope,$http,$state,Message,$ionicPopup) {
-        $scope.text={title:'',content:'',category:''};
-        $scope.back= function () {
-            if ($scope.text.title == '' && $scope.text.content == '' && $scope.text.category == '') {
+    .controller('Newmessage-1Ctrl', function ($scope, $http, $state, Message, $ionicPopup) {
+        $scope.text = {title: '', content: '', date: new Date()};
+        $scope.back = function () {
+            if ($scope.text.title == '' && $scope.text.content == '') {
                 $state.go('newmessage');
-            }else {
+            } else {
                 $ionicPopup.confirm({
                     title: '提示',
                     template: '你还没提交留言呢！',
@@ -535,7 +406,7 @@ angular.module('starter.controllers', ['ionic'])
             }
         }
         $scope.sendFeedback = function (text) {
-            if (text.title != '' && text.content != '' && text.category != '') {
+            if (text.title != '' && text.content != '') {
                 $ionicPopup.confirm({
                     title: '提示',
                     template: '确定要提交留言吗',
@@ -543,19 +414,23 @@ angular.module('starter.controllers', ['ionic'])
                     okText: '确定'
                 }).then(function (res) {
                     if (res == true) {
-                        $http.post(URL+'message',$scope.text).success(function(){
+                        $http.post(URL+'liuyan', {
+                            title: $scope.text.title,
+                            content: $scope.text.content,
+                            date: $scope.text.date
+                        }).success(function () {
 
                         })
-                        $state.go('newmessage',{}, {reload: true});
+                        $state.go('newmessage', {}, {reload: true});
                         //$scope.currentSong = angular.copy(text);
                         //Message.addFruitToFavorites($scope.currentSong);
-                        $scope.text={title:'',content:'',category:''};
+                        $scope.text = {title: '', content: ''};
                     } else {
 
                     }
                 });
-            }else {
-                if ($scope.text.title == '' || $scope.text.content == '' || $scope.text.category == '') {
+            } else {
+                if ($scope.text.title == '' || $scope.text.content == '') {
                     $ionicPopup.alert({
                         title: '提示',
                         template: '请填写完整的留言'
@@ -564,15 +439,11 @@ angular.module('starter.controllers', ['ionic'])
             }
 
 
-
-
         }
     })
 //课程页面控制器
-    .controller('LessonCtrl', function ($scope,$http, $state, Train1, Train2, Train3, Train4, Lessonens) {
-
+    .controller('LessonCtrl', function ($scope, $http, $state, Train1, Train2, Train3, Train4, Lessonens) {
         $scope.lessonens = Lessonens.all();
-
         $scope.train1 = function () {
             $state.go('train1');
         }
@@ -599,9 +470,10 @@ angular.module('starter.controllers', ['ionic'])
             name3: '舞蹈类',
             name4: '音乐类'
         }
-        $http.get(URL+'reqorder')
-            .success(function(da){
-                $scope.kc= da;
+        $http.get(URL+'sign')
+            .success(function (da) {
+                $scope.kc = da;
+
             })
 
     })
@@ -738,72 +610,55 @@ angular.module('starter.controllers', ['ionic'])
         }
     })
 //动态主页面
-    .controller('TrendsCtrl',function($scope,$http,$state,$stateParams,$ionicLoading){
-
-        $scope.up = {};
-        var file = document.getElementById('file').files[0];
-        $scope.uploadFile = function(){{
-                var ft = new FileTransfer();
-                var op = new FileUploadOptions();
-                var win = function(r){
-
-                }
-                var fail = function(error){
-
-                }
-                op.fileKey = 'file';
-                op.mimeType = 'text/plain';
-
-                if($scope.up.video != ''){
-                    op.fileName = $scope.up.video.substring($scope.up.video.lastIndexOf('/')
-                            + 1,$scope.up.video.lastIndexOf('.'))
-                        + Date.now() + $scope.up.video.substr($scope.up.video.lastIndexOf('.'));
-                    ft.upload($scope.up.video,encodeURI(URL+'public/videos'),win,fail,op);
-                    $scope.up.video = op.fileName;
-                }
-
-                $ionicLoading.show({
-                    content:'Loading',
-                    animation:'fade-in',
-                    showBackdrop: true,
-                    maxWidth: 200,
-                    showDelay: 0
-                });
-                $timeout(function(){
-                    $ionicLoading.hide();
-                    $http.post(URL+'upfile',$scope.up)
-                        .success(function(addrewardeds){
-                            alert('提交成功');
-                            $state.go('rewarded');
-                        }).error(function(error){
-                            alert(error);
-                        }).finally();
-                },2000);
+    .directive('fileInput', ['$parse', function ($parse) {
+        return {
+            restrict: 'A',
+            link: function (scope, elm, attrs) {
+                elm.bind('change', function () {
+                    $parse(attrs.fileInput)
+                        .assign(scope, elm[0].files);
+                    scope.$apply()
+                })
             }
         }
+    }])
+    .controller('TrendsCtrl', function ($scope, $http, $state, $stateParams, $ionicLoading,$sce) {
+
+        $scope.back = function(){
+            $state.go('tab.home');
+        }
+        $scope.adddynamic = function(){
+            $state.go('adddynamic');
+        }
+        //动态展示controller部分
+        $scope.dynamics = {};
+        $scope.trustSrc = function(name) {
+            return $sce.trustAsResourceUrl(name);
+        }
+
+        $scope.imgurl = IMGURL;
+        $scope.videourl = VIDEOURL;
+        $http.get(URL+'dynamic')
+            .success(function(data){
+                $scope.dynamics = data;
+                $scope.dynamics.file.name = data.file.name;
+            })
 
 
-
-
-
-
-
-
-
-        $scope.back= function () {
+        $scope.back = function () {
             $state.go('home');
         }
 
-        $scope.show = function(){
+        $scope.show = function () {
             $ionicLoading.show({
-                template:'加载中...'
+                template: '加载中...'
             });
         };
-        $scope.hide = function(){
+        $scope.hide = function () {
             $ionicLoading.hide();
         };
 
-        $scope.dorefresh = function(){
+        $scope.dorefresh = function () {
             $scope.$broadcast('scroll.refreshComplete');
         }
     })

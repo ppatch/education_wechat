@@ -1,126 +1,50 @@
 <ion-view view-title="蓝天白云培训机构">
-    <div class="bar bar-header bg1">
-        <div class="ion-ios-arrow-left button button-clear " menu-toggle="left" ng-click="back()">返回</div>
+    <div class="bar bar-header bg1" >
+            <div class="ion-ios-arrow-left button button-clear " menu-toggle="left" ng-click="back()">返回</div>
         <div class="title ">网上预约报名</div>
     </div>
-    <ion-content style="margin-top: 33px;" class="bg2">
+    <ion-content style="margin-top: 33px;"class="bg2">
         <div class="list list-inset">
-            <div class="list card">
-                <label class="item item-input">
-                    <input type="text" placeholder="请输入你的姓名" ng-model="user.name">
+            <label class="item item-input">
+                <input type="text" placeholder="请输入你的姓名" ng-model="user.name">
+            </label>
+
+            <label class="item item-input">
+                <input type="number"  placeholder="请预留你的联系方式" min="11" max="11" ng-model="user.phone">
                 </label>
 
-                <label class="item item-input">
-                    <input type="number" placeholder="请预留你的联系方式" ng-model="user.phone">
-                </label>
-                <label class="item item-select" style="font-size: 14px">请您选择要报的课程<select ng-model="user.kecheng" >
-                    <option value="英语">英语</option>
-                    <option value="法语">法语</option>
-                    <option value="粤语">粤语</option>
-                    <option value="俄语">俄语</option>
-                    <option value="数学">数学</option>
-                    <option value="语文">语文</option>
-                    <option value="硬笔字">硬笔字</option>
-                    <option value="英语">芭蕾舞</option>
-                    <option value="恰恰">恰恰</option>
-                    <option value="爵士">爵士</option>
-                    <option value="hip-hop">hip-hop</option>
-                    <option value="口琴">口琴</option>
-                    <option value="吉他">吉他</option>
-                    <option value="古筝">古筝</option>
-                    <option value="美术">美术</option>
-                    <option value="古筝">古筝</option>
-                    <option value="钢琴">钢琴</option>
-                </select></label>
-                <!--<div class="list card" ng-repeat="class in myfavorites" style="height: 150px">-->
-                <!--<label class="item item-input">-->
-                <!--<input type="text" placeholder="请输入您要报的课程如(英语)" ng-model="user.kecheng">-->
-                <!--</label>-->
-            </div>
-            <!--<label class="item item-input">-->
-            <!--<input type="number" placeholder="请预留你所报课程课次" ng-model="user.phone">-->
-            <!--</label>-->
-            <!--<label class="item item-input">-->
-            <!--<input type="text" placeholder="请输入您要报的授课老师" ng-model="user.name">-->
-            <!--</label>-->
-            <!--</div>-->
-            <!--<div class="list card" ng-repeat="class in myfavorites" style="height: 300px">-->
-
-            <!--<p>您要报的课程:{{class.name}}</p>-->
-
-            <!--<input type="checkbox" ng-model="user.class" value="{{class.name}}">{{class.name}}-->
+            <label class="item item-body" ng-repeat="class in myfavorites" style="height: 150px">
+                <p>您要报的课程:{{class.name}}</p>
+                <p>您报课程的上课时间:{{class.date}}{{class.time}}</p>
+                <p>现价（原价）：{{class.price}}</p>
 
 
-            <!--<p style="text-align: center;margin-top: 5px">请您在右边确认您的订单</p>-->
-
-
-            <!--<label class="item item-select">-->
-            <!--<select ng-model="user.class">-->
-            <!--<option value="汽车保养" selected="selected">sdasdsa</option>-->
+            <!--<select >-->
+                <!--&lt;!&ndash;<option >请选择课程</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option ng-repeat="train11 in train1" ng-click="test()">{{train11.name}}</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option ng-repeat="train2 in train2">{{train2.name}}</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option ng-repeat="train3 in train3">{{train3.name}}</option>&ndash;&gt;-->
+                <!--&lt;!&ndash;<option ng-repeat="train4 in train4">{{train4.name}}</option>&ndash;&gt;-->
             <!--</select>-->
-            <!--</label>-->
 
-            <!--<label class="item item-select" style="font-size: 14px">您要报的课程:{{class.name}}<select ng-model="user.class" >-->
-            <!--<option value="{{class.name}}">️确认</option>-->
-            <!--</select></label>-->
-
-            <!--<label class="item item-select" style="font-size: 14px">所报课程课次:{{class.keci}}<select  ng-model="user.keci">-->
-            <!--<option selected value="{{class.keci}}">确认</option>-->
-            <!--</select></label>-->
-            <!--<label class="item item-select" style="font-size: 14px">您要报的授课老师:{{class.teacher}}<select ng-model="user.teacher.name">-->
-            <!--<option selected="selected" value="{{class.teacher}}">确认</option>-->
-            <!--</select></label>-->
-            <!--<label class="item item-select" style="font-size:14px;">上课时间:{{class.date}}{{class.time}}<select  ng-model="user.time">-->
-            <!--<option selected="selected" value="{{class.date}}{{class.time}}">确认-->
-            <!--</option>-->
-            <!--</select></label>-->
-            <!--<label class="item item-select" style="font-size: 14px">现价（原价）：{{class.price}}<select  ng-model="user.price">-->
-            <!--<option selected="selected" value="{{class.price}}">确认</option>-->
-            <!--</select></label>-->
-
-
-            <!--&lt;!&ndash;<p><input ng-model="user.class" placeholder="请输入您要报的课程">您要报的课程:(如{{class.name}})</input></p>&ndash;&gt;-->
-            <!--&lt;!&ndash;<p><input ng-model="user.class" placeholder="请输入您要报的课程">您要报的课次:(如{{class.keci}})</input></p>&ndash;&gt;-->
-
-
-            <!--&lt;!&ndash;<p><input ng-model="user.class" placeholder="请输入您要报的课程">您所报课程的老师:(如{{class.teacher}})</input></p>&ndash;&gt;-->
-            <!--&lt;!&ndash;<p><input ng-model="user.class" placeholder="请输入您要报的课程">您所报课程的时间:(如{{class.time}})</input></p>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;<div ng-model="user.class">您要报的课程:{{class.name}}</div>&ndash;&gt;-->
-            <!--&lt;!&ndash;<select >&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option >请选择课程</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train11 in train1" ng-click="test()">{{train11.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train2 in train2">{{train2.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train3 in train3">{{train3.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train4 in train4">{{train4.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;</select>&ndash;&gt;-->
-
-            <!--&lt;!&ndash;</label>&ndash;&gt;-->
-            <!--&lt;!&ndash;<label class="item item-select">&ndash;&gt;-->
-            <!--&lt;!&ndash;<p>请选择你报课程的上课时间:</p>&ndash;&gt;-->
-            <!--&lt;!&ndash;<select >&ndash;&gt;-->
-            <!--&lt;!&ndash;<option >请选择时间</option>&ndash;&gt;-->
-            <!--&lt;!&ndash;<option  >{{lessoned.date}}</option>&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option >{{train1.date2}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option >{{train1.date3}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train2 in train2">{{train2.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train3 in train3">{{train3.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;&lt;!&ndash;<option ng-repeat="train4 in train4">{{train4.name}}</option>&ndash;&gt;&ndash;&gt;-->
-            <!--&lt;!&ndash;</select>&ndash;&gt;-->
-        </div>
-        <!--</div>-->
-
-
-        <!--<label class="item item-select">-->
-        <!--<select ng-model="user.class">-->
-        <!--<option value="汽车保养" selected="selected">sdasdsa</option>-->
-        <!--</select>-->
         <!--</label>-->
+            <!--<label class="item item-select">-->
+                <!--<p>请选择你报课程的上课时间:</p>-->
+                <!--<select >-->
+                    <!--<option >请选择时间</option>-->
+                    <!--<option  >{{lessoned.date}}</option>-->
+                    <!--&lt;!&ndash;<option >{{train1.date2}}</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option >{{train1.date3}}</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option ng-repeat="train2 in train2">{{train2.name}}</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option ng-repeat="train3 in train3">{{train3.name}}</option>&ndash;&gt;-->
+                    <!--&lt;!&ndash;<option ng-repeat="train4 in train4">{{train4.name}}</option>&ndash;&gt;-->
+                <!--</select>-->
 
+            </label>
+        </div>
 
         <div class="list padding">
-            <button class="button button-full button-balanced" ng-click="ensure($index)">确定</button>
-        </div>
-
+        <button class="button button-full button-balanced" ng-click="ensure()">确定</button>
+            </div>
     </ion-content>
 </ion-view>

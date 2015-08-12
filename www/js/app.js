@@ -47,11 +47,17 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
             })
 
 
-//老师页面
+//老师和获奖页面
             .state('teachers', {
-                url: '/teachers',
+                url: '/teachers?params',
                 templateUrl: 'templates/teachers.html',
                 controller: 'TeachersCtrl'
+            })
+            //获奖跳转页面
+            .state('rewarded', {
+                url: '/rewarded?params',
+                templateUrl: 'templates/rewarded.html',
+                controller: 'RewardedCtrl'
             })
 //老师子页面
             .state('teachers-detail', {
@@ -124,12 +130,6 @@ angular.module('starter', ['ionic', 'starter.controllers', 'starter.services','n
                 url:'/newmessage',
                 templateUrl:'templates/newmessage.html',
                 controller:'NewmessageCtrl'
-            })
-//单条留言
-            .state('formessage',{
-                url:'/newmessage/:_id',
-                templateUrl:'templates/formessage.html',
-                controller:'formessageCtrl'
             })
 //自己单条留言
             .state('formessage1',{

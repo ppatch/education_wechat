@@ -1,26 +1,56 @@
-<ion-view view-title="蓝天白云培训机构">
-    <div class="bar bar-header bg1">
-        <button class="button button-clear icon ion ion-ios-arrow-left"ng-click="back()">返回</button>
-        <div class="title ">活动公告</div>
-    </div>
-    <ion-content style="margin-top: 43px"class="bg2" >
+<ion-view title="活动">
+    <ion-nav-bar class="bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="back()">
+                <i class="icon ion-chevron-left" ></i>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
 
-        <div class="leftright" style="margin-top: 20px">
-            <ion-list>
-                <div class="list padding-left padding-right padding-top" type="item-text-wrap" ng-repeat="activity in activitys.activity">
+    <ion-tabs class="tabs-striped tabs-top ">
+        <ion-tab title="课程优惠">
+            <ion-view>
+                <ion-content class="padding-right padding-left bg2">
+                    <div class="leftright" style="margin-top: 20px">
+                        <ion-list>
+                            <div class="list padding-left padding-right padding-top" type="item-text-wrap" ng-repeat="activity in activitys1">
+                                <div class=" item    item-divider" >
+                                    <div align="center">{{activity.title}}</div>
+                                </div>
+                                <div class="item item-body">
 
-
-                    <div class=" item    item-divider" >
-                        <div align="center">{{activity.title}}</div>
+                                    <div >优惠课程：{{activity.kecheng}}</div>
+                                    <div > 授课老师：{{activity.teacher}}</div>
+                                    <div >现价（原价）：{{activity.price}}</div>
+                                    <div >课程时间：{{activity.time}}</div>
+                                    <p class="padding" style="text-align: right">{{activity.date|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                                </div>
+                            </div>
+                        </ion-list>
                     </div>
-                    <div class="item item-body">
-                        <div>优惠课程：{{activity.kecheng}}</div>
-                        <div> 授课老师：{{activity.teacher}}</div>
-                        <div>现价（原价）：{{activity.price}}</div>
-                        <div>课程时间：{{activity.time}}</div>
-                    </div>
-                </div>
-            </ion-list>
-        </div>
-    </ion-content>
-</ion-view>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+        <ion-tab title="其他活动">
+            <ion-view>
+                <ion-content class="padding-right padding-left bg2" >
+                    <ion-list>
+                        <div class="list padding-left padding-right padding-top" type="item-text-wrap" ng-repeat="activity in activitys2">
+                            <div class=" item    item-divider" >
+                                <div align="center">{{activity.title}}</div>
+                            </div>
+                            <div class="item item-body">
+                                <div  class="item" style="height:200px;width: 200px;margin-bottom: 5px"><img src="{{imgurl+activity.image[0]}}" style="width: 100%"></div>
+                                <div>内容：{{activity.describe}}</div>
+                                <p class="padding" style="text-align: right">{{activity.date|date:'yyyy-MM-dd HH:mm:ss'}}</p>
+                            </div>
+                        </div>
+                    </ion-list>
+                </ion-content>
+            </ion-view>
+        </ion-tab>
+    </ion-tabs>
+
+
+
+</ion-view> 

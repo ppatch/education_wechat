@@ -1,0 +1,17 @@
+<ion-view view-title="蓝天白云培训机构">
+    <div class="bar bar-header bg1">
+        <button class="button button-clear icon ion ion-ios-arrow-left " ng-click="back()">返回</button>
+        <div class="title">获奖详情</div>
+    </div>
+    <ion-content class="padding bg2" style="margin-top:20px;padding: 15px">
+        <div class="list card" >
+            <h4 style="text-align: center;margin-top: 8%">{{aa.title}}</h4>
+                <img style="width: 80%;margin-left: 10%;" ng-src="{{imgurl+aa.image[0]}}">
+           <div style="margin-left: 10%;">
+            <p>获奖学生：{{aa.people}}</p>
+                <p>获奖内容：{{aa.describe}}</p>
+            <p>获奖时间：{{aa.time}}</p>
+           </div>
+        </div>
+    </ion-content>
+</ion-view>

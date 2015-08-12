@@ -6,49 +6,28 @@
                 ng-click="newmessage()"></button>
     </div>
 
-    <ion-tabs class="tabs-top">
-        <ion-tab title="全部留言">
-            <ion-view>
-                <ion-content class="bg2" >
-                    <ion-item class="list item-avatar" ng-repeat="message in mymessage" style="margin: 10px"
-                              href="#/newmessage/{{ message._id }}">
-                        <img src="img/dog1.jpg">
 
-                        <div style="text-align: center">
-                            <h2>{{message.title}}</h2>
-                        </div>
+    <ion-content class="bg2" style="margin-top: 43px">
 
-                        <div style="color: deepskyblue">林永康:</div>
 
-                        <div style="border: 1px">{{message.content}}</div>
-                        <div style="margin-left: 45%;font-size: 10px;float: right">
-                            {{message.date|date:'yyyy-MM-ddHH:mm:ss'}}
-                        </div>
-                    </ion-item>
-                </ion-content>
-            </ion-view>
-        </ion-tab>
-        <ion-tab title="我的留言">
-          <ion-view>
-              <ion-content class="bg2">
-                  <ion-item class="list item-avatar" ng-repeat="message in mymessage" style="margin: 10px"
-                            href="#/newmessage/1/{{ message._id }}">
-                      <img src="img/dog1.jpg">
+        <ion-item class="list item-avatar" ng-repeat="message in mymessage" style="margin: 10px"
+                  href="#/newmessage/1/{{ message._id }}">
+            <img src="img/dog1.jpg">
 
-                      <div style="text-align: center">
-                          <h2>{{message.title}}</h2>
-                      </div>
+            <div style="text-align: center">
+                <h2>{{message.title}}</h2>
+            </div>
 
-                      <div style="color: deepskyblue">林永康:</div>
+            <div style="color: deepskyblue">林小欧:</div>
 
-                      <div style="border: 1px">{{message.content}}</div>
-                      <div style="margin-left: 45%;font-size: 10px;float: right">
-                          {{message.date|date:'yyyy-MM-ddHH:mm:ss'}}
-                      </div>
-                  </ion-item>
-              </ion-content>
-          </ion-view>
+            <div style="border: 1px;white-space: normal">{{message.content}}</div>
+            <div style="margin-left: 45%;font-size: 10px;float: right">
+                {{message.date|date:'yyyy-MM-ddHH:mm:ss'}}
+            </div>
+        </ion-item>
+    </ion-content>
+</ion-view>
 
-        </ion-tab>
-    </ion-tabs>
+
+
 

@@ -1,35 +1,36 @@
-<ion-view view-title="动态">
-    <div class="bar bar-header bg1">
-        <button class="button button-clear icon ion ion-ios-arrow-left"ng-click="back()">返回</button>
-        <div class="title ">班级信息</div>
-    </div>
-    <ion-content style="margin-top: 43px"class="bg2">
-        <ion-refresher on-refresh="dorefresh()"
-        pulling-text="下拉刷新">
-        </ion-refresher>
-        <ion-list class="bg2">
+<ion-view title="动态">
+    <ion-nav-bar class="bar">
+        <ion-nav-buttons side="left">
+            <button class="button button-clear" ng-click="back()">
+                <i class="icon ion-chevron-left" ></i>
+            </button>
+        </ion-nav-buttons>
+        <ion-nav-buttons side="right">
+            <button class="button button-clear" ng-click="adddynamic()">
+                <i class="icon ion-camera"></i>
+            </button>
+        </ion-nav-buttons>
+    </ion-nav-bar>
+    <ion-content>
+        <div class="list" ng-repeat="dynamic in dynamics">
+            <div class="row" style="margin-top: 10px">
+                <div>
+                    <img src="img/f1.jpg" style="width: 50px;height: 50px">
 
-            <ion-item class="item item-avatar">
-                <!--<img src="">-->
-                <a href="javascript:void(0)" class="upload-btn">
-                    <!--<input type="file" ng-file-select="upload" name="file" id="file" accept="image/*"/>-->
-                    <input type="file" name="file" id="file" ng-model="up.video" on-change="fileSelected()" >
-                    <button ng-click="uploadFile()">上传</button>
-                </a>
-
-                <div>内容</div>
-                <img style="height: 120px;width: 180px; margin-left: 10px" src="{{}}">
-                <!--<div class="padding">-->
-                    <!--<object width="100%" height="150">-->
-                        <!--&lt;!&ndash;<param name="movie" value="https://www.youtube.com/v/WzhW20hLp6M?version=3&amp;hl=uk_UA&amp;rel=0"/>&ndash;&gt;-->
-                        <!--<param name="allowFullScreen" value="true"/>-->
-                        <!--<param name="allowscriptaccess" value="always"/>-->
-                        <!--<video src="video/shipin.mp4" controls="controls" style="width: 100%"></video>-->
-                    <!--</object>-->
-                <!--</div>-->
-
-            </ion-item>
-
-        </ion-list>
+                </div>
+                <div class="padding-left">
+                    <div class="row">
+                        <span style="color: #11c1f3">林泽濠</span>
+                    </div>
+                    <div class="item-divider" style="text-align: center">{{dynamic.title}}</div>
+                    <div>{{dynamic.content}}</div>
+                    <img src="{{imgurl+dynamic.image}}" style="width: 60%">
+                    <video controls="controls" poster="img/poster.png" style="width: 100%">
+                        <source ng-src="{{trustSrc(videourl+dynamic.file.name)}}" >
+                    </video>
+                </div>
+            </div>
+            <div class="padding-left">{{dynamic.date | date:'yyyy-MM-dd HH:mm:ss'}}</div>
+        </div>
     </ion-content>
 </ion-view>

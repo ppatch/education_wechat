@@ -12,58 +12,58 @@
                     <!--//第一类课程表框-->
                     <div class=" item item-text-wrap light" style="padding: inherit; margin-left: 20px;margin-right: 20px;margin-top: 10px ">
 
-                        <div class="row" style="height: 130px">
-                            <div class="col   "
-                                 style="background-image: url({{lesson.lesson1}});background-size: cover;background-position: center;"
-                                 ng-click="train1()">
-                                <div align="center" style="font-size: 15px;margin-top: 90px" class="st">
-                                    {{lesson.name1}}
+                                <div class="row" style="height: 130px">
+                                    <div class="col   "
+                                         style="background-image: url({{lesson.lesson1}});background-size: cover;background-position: center;"
+                                         ng-click="train1()">
+                                        <div align="center" style="font-size: 15px;margin-top: 90px" class="st">
+                                            {{lesson.name1}}
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
-                    </div>
 
                     <!--//第二类课程表框-->
                     <div class=" item item-text-wrap light" style="padding: inherit; margin-left: 20px;margin-right: 20px;margin-top: 10px">
 
-                        <div class="row" style="height: 130px">
-                            <div class="col   positive-bg balanced"
-                                 style="background-image: url({{lesson.lesson2}});background-size: cover;background-position: center;"
-                                 ng-click="train2()">
-                                <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
-                                    {{lesson.name2}}
+                                <div class="row" style="height: 130px">
+                                    <div class="col   positive-bg balanced"
+                                         style="background-image: url({{lesson.lesson2}});background-size: cover;background-position: center;"
+                                         ng-click="train2()">
+                                        <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
+                                            {{lesson.name2}}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
                     </div>
                     <!--//第三类课程表框-->
                     <div class=" item item-text-wrap light" style="padding: inherit;margin-left: 20px;margin-right: 20px;margin-top: 10px">
 
-                        <div class="row" style="height: 130px">
-                            <div class="col   positive-bg balanced"
-                                 style="background-image: url({{lesson.lesson3}});background-size: cover;background-position: center;"
-                                 ng-click="train3()">
-                                <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
-                                    {{lesson.name3}}
+                                <div class="row" style="height: 130px">
+                                    <div class="col   positive-bg balanced"
+                                         style="background-image: url({{lesson.lesson3}});background-size: cover;background-position: center;"
+                                         ng-click="train3()">
+                                        <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
+                                            {{lesson.name3}}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                        </div>
 
                     </div>
                     <!--//第四类课程表框-->
                     <div class=" item item-text-wrap light" style="padding: inherit;margin-left: 20px;margin-right: 20px;margin-top: 10px">
 
-                        <div class="row" style="height: 130px">
-                            <div class="col   positive-bg balanced"
-                                 style="background-image: url({{lesson.lesson4}});background-size: cover;background-position: center;"
-                                 ng-click="train4()">
-                                <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
-                                    {{lesson.name4}}
+                                <div class="row" style="height: 130px">
+                                    <div class="col   positive-bg balanced"
+                                         style="background-image: url({{lesson.lesson4}});background-size: cover;background-position: center;"
+                                         ng-click="train4()">
+                                        <div style="font-size: 15px;margin-top: 90px" align="center" class="st">
+                                            {{lesson.name4}}
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
                         </div>
-                    </div>
 
                 </ion-content>
             </ion-view>
@@ -73,25 +73,22 @@
             <ion-view>
                 <ion-content class="bg2">
                     <div class="list padding">
-                        <div class="list card" style="margin-top:5px;" ng-repeat="lessoned in kc"
-                             href="#/lesson/{{lessoned.id}}">
+                        <a class="item item-text-wrap " style="margin-bottom: 10px;" ng-repeat="lessoned in lessonens"
+                           href="#/lesson/{{lessoned.id}}">
 
-                            <p align="center" style="margin-top: 10px">您所预约的课程：{{lessoned.kecheng}}</p>
+                            <div align="center">{{lessoned.name}}</div>
                             <div align="center">
-
                                 <div style="font-size: 10px">
-                                    <!--<span >课次：{{lessoned.keci}} </span>-->
-                                    <span style="margin-right: 20px">报名人:{{lessoned.name}}</span>
-                                    <span>状态：处理中</span>
-                                    <!--<span style="margin-left: 7%">学生：{{lessoned.name}}</span>-->
+                                    <span >课次：{{lessoned.keci}} </span>
+                                    <span style="margin-left: 7%">状态：{{lessoned.state}}</span>
+                                    <span style="margin-left: 7%">学生：{{lessoned.student}}</span>
                                 </div>
-                                <!--<div style="font-size: 10px">-->
-                                <!--<span >授课老师：{{lessoned.teacher}}</span>-->
-                                <!--<span style="margin-left: 5%">上课时间：{{lessoned.time}}</span>-->
-                                <!--</div>-->
+                                <div style="font-size: 10px">
+                                    <span >授课老师：{{lessoned.teacher}}</span>
+                                    <span style="margin-left: 7%">上课时间：{{lessoned.time}}</span>
+                                </div>
                             </div>
-                            <p style="padding-left: 50%" class="text-muted">预约时间：{{lessoned.date|date:'yyyy-MM-dd HH:mm:ss'}}</p>
-                        </div>
+                        </a>
                     </div>
 
                 </ion-content>
