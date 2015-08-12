@@ -1,9 +1,9 @@
 //var IMGURL = 'http://172.16.20.76:3000/images/'
 //var VIDEOURL = 'http://172.16.20.76:3000/images/';
 //var URL = 'http://172.16.20.85:3000/';
-var URL = 'http://huyugui.f3322.org:3100/';
-var IMGURL = 'http://huyugui.f3322.org:3100/images/'
-var VIDEOURL = 'http://huyugui.f3322.org:3100/images/';
+var URL = 'http://huyugui.f3322.org:3300/';
+var IMGURL = 'http://huyugui.f3322.org:3300/images/'
+var VIDEOURL = 'http://huyugui.f3322.org:3300/images/';
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state) {
