@@ -4,6 +4,7 @@
 var URL = 'http://huyugui.f3322.org:3300/';
 var IMGURL = 'http://huyugui.f3322.org:3300/images/'
 var VIDEOURL = 'http://huyugui.f3322.org:3300/images/';
+ var WEIXIN = {};
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state,$location,$http) {
@@ -45,7 +46,7 @@ angular.module('starter.controllers', ['ionic'])
         $scope.goto6 = function () {
             $state.go("navigation");
         }
-        $scope.message = {
+        WEIXIN = {
             //user: $rootScope.userId,
             wxuser: $location.search().name,
             headurl: $location.search().headimgurl,
@@ -60,16 +61,16 @@ angular.module('starter.controllers', ['ionic'])
         $scope.goto9 = function () {
 
 
-            $http.post(URL + 'weixin', {
-                wxuser: $scope.message.wxuser,
-                headurl: $scope.message.headurl,
-                openid:$scope.message.openid
-            })
-                .success(function () {
-                    $state.go("newmessage");
-                }).error(function (error) {
-                    alert(error);
-                }).finally();
+        //    $http.post(URL + 'weixin', {
+        //        wxuser: WEIXIN.wxuser,
+        //        headurl: WEIXIN.headurl,
+        //        openid:WEIXIN.openid
+        //    })
+        //        .success(function () {
+        //            $state.go("newmessage");
+        //        }).error(function (error) {
+        //            alert(error);
+        //        }).finally();
         }
     })
 //活动
@@ -348,27 +349,27 @@ angular.module('starter.controllers', ['ionic'])
                 $state.go('home');
             }
         $scope.dorefresh = function () {
-            $http.get(URL + 'message', {params: {openid: $scope.message.openid}})
+            $http.get(URL + 'message', {params: {openid: WEIXIN.openid}})
                 .success(function (data) {
-                    $scope.one = [];
-                    data.forEach(function (e) {
-                        var t = {
-                            content: e.content,
-                            title: e.title,
-                            date: e.date
-                        };
-
-                        if (e.wxuser === undefined) {
-                            t.img = e.user.image;
-                            t.name = e.user.name;
-                        } else {
-                            t.img = e.headurl;
-                            t.name = e.wxuser;
-                        }
-                        $scope.one.push(t);
-                    })
-                    $scope.one.reverse();
-
+                    //$scope.one = [];
+                    //data.forEach(function (e) {
+                    //    var t = {
+                    //        content: e.content,
+                    //        title: e.title,
+                    //        date: e.date
+                    //    };
+                    //
+                    //    if (e.wxuser === undefined) {
+                    //        t.img = e.user.image;
+                    //        t.name = e.user.name;
+                    //    } else {
+                    //        t.img = e.headurl;
+                    //        t.name = e.wxuser;
+                    //    }
+                    //    $scope.one.push(t);
+                    //})
+                    //$scope.one.reverse();
+    $scope.one=data;
                 }).error(function (error) {
                     alert(error);
                 }).finally()
@@ -433,7 +434,7 @@ angular.module('starter.controllers', ['ionic'])
     })
 //添加留言
     .controller('Newmessage-1Ctrl', function ($scope, $http, $state, Message, $ionicPopup) {
-        $scope.text = {title: '', content: '', date: new Date()};
+        $scope.text = {title: '', content: '', date: new Date(),openid:'',wxuser:'',headurl:''};
         $scope.back = function () {
             if ($scope.text.title == '' && $scope.text.content == '') {
                 $state.go('newmessage');
@@ -463,7 +464,10 @@ angular.module('starter.controllers', ['ionic'])
                         $http.post(URL+'liuyan', {
                             title: $scope.text.title,
                             content: $scope.text.content,
-                            date: $scope.text.date
+                            date: $scope.text.date,
+                            openid:WEIXIN.openid,
+                            wxuser:WEIXIN.wxuser,
+                            headurl:WEIXIN.headurl,
                         }).success(function () {
 
                         })
