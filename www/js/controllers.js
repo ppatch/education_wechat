@@ -326,78 +326,76 @@ angular.module('starter.controllers', ['ionic'])
 
     })
 //留言展示
-    .controller('NewmessageCtrl', function ($scope, $http, $state, Message) {
-        $scope.$on('$ionicView.beforeEnter', function (viewInfo, state) {
+    .controller('NewmessageCtrl', function ($scope, $http, $state) {
+
             $scope.back = function () {
                 $state.go('home');
             }
-            $scope.message = {
-                content:'',
-                wxuser: $location.search().name,
-                headurl: $location.search().headimgurl,
-                openid: $location.search().Openid,
-                user: $rootScope.userId
-            };
-
-            $scope.addw = function () {
-                if($scope.message.content == ''){
-                    alert('空的咱就不要提交了把')
-                }else{
-                    $ionicLoading.show({
-                        content: 'Loading',
-                        animation: 'fade-in',
-                        showBackdrop: true,
-                        maxWidth: 200,
-                        showDelay: 0
-                    });
-                    $timeout(function () {
-                        $ionicLoading.hide();
-                        $http.post(URL + 'message', $scope.message)
-                            .success(function () {
-                                alert('预约成功');
-                                loadData();
-                                $scope.message.content = '';
-                            }).error(function (error) {
-                                alert(error);
-                            }).finally();
-                    }, 2000);
-
-                }
-            }
-            var loadData = function () {
-                $http.get(URL + 'message', {params: {openid: $scope.message.openid}})
-                    .success(function (data) {
-                        $scope.one = [];
-                        data.reverse().forEach(function (e) {
-                            var t = {
-                                content: e.content,
-                                time: e.messageTime
-                            };
-
-                            if (e.wxuser === undefined) {
-                                t.img = e.user.image;
-                                t.name = e.user.name;
-                            } else {
-                                t.img = e.headurl;
-                                t.name = e.wxuser;
-                            }
-                            $scope.one.push(t);
-                        })
-
-                    }).error(function (error) {
-                        alert(error);
-                    }).finally();
-            }
-            loadData();
-            //$scope.newmessage = function () {
-            //    $state.go('newmessage-1');
-            //}
-            //$http.get(URL+'message')
-            //    .success(function (da) {
-            //        $scope.mymessage = da;
+            //$scope.message = {
+            //    wxuser: $location.search().name,
+            //    headurl: $location.search().headimgurl,
+            //    openid: $location.search().Openid
             //
-            //    });
-        })
+            //};
+            //
+            //$scope.addw = function () {
+            //    if($scope.message.content == ''){
+            //        alert('空的咱就不要提交了把')
+            //    }else{
+            //        $ionicLoading.show({
+            //            content: 'Loading',
+            //            animation: 'fade-in',
+            //            showBackdrop: true,
+            //            maxWidth: 200,
+            //            showDelay: 0
+            //        });
+            //        $timeout(function () {
+            //            $ionicLoading.hide();
+            //            $http.post(URL + 'message', $scope.message)
+            //                .success(function () {
+            //                    alert('预约成功');
+            //                    loadData();
+            //                    $scope.message.content = '';
+            //                }).error(function (error) {
+            //                    alert(error);
+            //                }).finally();
+            //        }, 2000);
+            //
+            //    }
+            //}
+            //var loadData = function () {
+            //    $http.get(URL + 'message', {params: {openid: $scope.message.openid}})
+            //        .success(function (data) {
+            //            $scope.one = [];
+            //            data.reverse().forEach(function (e) {
+            //                var t = {
+            //                    content: e.content,
+            //                    date: e.date
+            //                };
+            //
+            //                if (e.wxuser === undefined) {
+            //                    t.img = e.user.image;
+            //                    t.name = e.user.name;
+            //                } else {
+            //                    t.img = e.headurl;
+            //                    t.name = e.wxuser;
+            //                }
+            //                $scope.one.push(t);
+            //            })
+            //
+            //        }).error(function (error) {
+            //            alert(error);
+            //        }).finally();
+            //}
+            //loadData();
+            $scope.newmessage = function () {
+                $state.go('newmessage-1');
+            }
+            $http.get(URL+'message')
+                .success(function (da) {
+                    $scope.mymessage = da;
+
+                });
     })
 //单个留言（能回复）
     .controller('formessage1Ctrl', function ($scope, $state, $http, $rootScope, $stateParams, $ionicLoading, $timeout, $routeParams) {
