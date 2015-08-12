@@ -10,15 +10,15 @@
     <ion-content class="bg2" style="margin-top: 43px">
 
 
-        <ion-item class="list item-avatar" ng-repeat="message in mymessage" style="margin: 10px"
+        <ion-item class="list item-avatar" ng-repeat="message in one" style="margin: 10px"
                   href="#/newmessage/1/{{ message._id }}">
-            <img src="img/dog1.jpg">
+            <img src="{{mm.img}}">
 
             <div style="text-align: center">
                 <h2>{{message.title}}</h2>
             </div>
 
-            <div style="color: deepskyblue">林小欧:</div>
+            <div style="color: deepskyblue">林小欧:{{mm.name}}</div>
 
             <div style="border: 1px;white-space: normal">{{message.content}}</div>
             <div style="margin-left: 45%;font-size: 10px;float: right">
