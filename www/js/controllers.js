@@ -6,7 +6,7 @@ var IMGURL = 'http://huyugui.f3322.org:3300/images/'
 var VIDEOURL = 'http://huyugui.f3322.org:3300/images/';
 angular.module('starter.controllers', ['ionic'])
 //主页
-    .controller('HomeCtrl', function ($scope, $state) {
+    .controller('HomeCtrl', function ($scope, $state,$location,$http) {
         $scope.dash = {
             tu1: './img/introduce.png',
             name1: '机构介绍',
@@ -45,9 +45,21 @@ angular.module('starter.controllers', ['ionic'])
         $scope.goto6 = function () {
             $state.go("navigation");
         }
+        $scope.message = {
+            content: '',
+            //user: $rootScope.userId,
+            wxuser: $location.search().name,
+            headurl: $location.search().headimgurl,
+            openid: $location.search().Openid
+        };
         $scope.goto7 = function () {
             $state.go("message");
-
+            $http.post(URL + 'weixin', $scope.message)
+                .success(function () {
+                    alert('留言成功');
+                }).error(function (error) {
+                    alert(error);
+                }).finally();
         }
         $scope.goto8 = function () {
             $state.go("phone");
