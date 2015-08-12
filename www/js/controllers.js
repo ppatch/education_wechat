@@ -60,14 +60,14 @@ angular.module('starter.controllers', ['ionic'])
         }
         $scope.goto9 = function () {
 
-
+            $state.go("newmessage");
         //    $http.post(URL + 'weixin', {
         //        wxuser: WEIXIN.wxuser,
         //        headurl: WEIXIN.headurl,
         //        openid:WEIXIN.openid
         //    })
         //        .success(function () {
-        //            $state.go("newmessage");
+        //
         //        }).error(function (error) {
         //            alert(error);
         //        }).finally();
