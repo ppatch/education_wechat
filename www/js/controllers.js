@@ -351,25 +351,7 @@ angular.module('starter.controllers', ['ionic'])
         $scope.dorefresh = function () {
             $http.get(URL + 'message', {params: {openid: WEIXIN.openid}})
                 .success(function (data) {
-                    //$scope.one = [];
-                    //data.forEach(function (e) {
-                    //    var t = {
-                    //        content: e.content,
-                    //        title: e.title,
-                    //        date: e.date
-                    //    };
-                    //
-                    //    if (e.wxuser === undefined) {
-                    //        t.img = e.user.image;
-                    //        t.name = e.user.name;
-                    //    } else {
-                    //        t.img = e.headurl;
-                    //        t.name = e.wxuser;
-                    //    }
-                    //    $scope.one.push(t);
-                    //})
-                    //$scope.one.reverse();
-    $scope.one=data;
+                    $scope.one=data;
                 }).error(function (error) {
                     alert(error);
                 }).finally()
@@ -415,12 +397,19 @@ angular.module('starter.controllers', ['ionic'])
                     $ionicLoading.hide();
                     $http.post(URL+'message/' + $stateParams._id + '/answer', {
                         answer: $scope.form.answer,
-                        date: $scope.form.date
+                        date: $scope.form.date,
+                        openid:WEIXIN.openid,
+                        wxuser:WEIXIN.wxuser,
+                        headurl:WEIXIN.headurl
                     })
                         .success(function (data) {
                             $scope.messageaa.answer.push({
                                 answer: $scope.form.answer,
-                                date: $scope.form.date
+                                date: $scope.form.date,
+                                openid:WEIXIN.openid,
+                                wxuser:WEIXIN.wxuser,
+                                headurl:WEIXIN.headurl
+
                             });
                             $state.go('newmessage')
                         }).error(function (error) {
@@ -434,7 +423,7 @@ angular.module('starter.controllers', ['ionic'])
     })
 //添加留言
     .controller('Newmessage-1Ctrl', function ($scope, $http, $state, Message, $ionicPopup) {
-        $scope.text = {title: '', content: '', date: new Date(),openid:'',wxuser:'',headurl:''};
+        $scope.text = {title: '', content: '', date: new Date()};
         $scope.back = function () {
             if ($scope.text.title == '' && $scope.text.content == '') {
                 $state.go('newmessage');

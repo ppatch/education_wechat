@@ -10,10 +10,10 @@
             <h2 class="title " align="center">{{ messageaa.title }}</h2>
         </div>
         <div class="item item-avatar">
-            <img src="img/dog1.jpg">
+            <img src={{messageaa.headurl}}>
 
             <div class="text-muted" style="font-size: 10px;">{{ messageaa.date | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
-            <span style="color: deepskyblue">林小欧:</span>
+            <span style="color: deepskyblue">{{messageaa.wxuser}}</span>
 
             <span class="item-text-wrap"style="font-size: 13px">{{ messageaa.content }}</span>
         </div>
@@ -21,11 +21,11 @@
         <div class="padding-right padding-left">
 
             <div class="item  item-avatar" ng-repeat="answer in messageaa.answer">
-                <img src="img/dog2.jpg">
+                <img src={{answer.headurl}}>
                 <div class="text-muted" style="font-size: 10px;">{{ answer.date | date: 'yyyy-MM-dd HH:mm:ss' }}
                 </div>
 
-                <span style="color: deepskyblue">蓝天白云培训机构:</span>
+                <span style="color: deepskyblue">{{answer.wxuser}}</span>
                 <span style="font-size: 12px"class="item-text-wrap">{{ answer.answer }}</span>
             </div>
 
