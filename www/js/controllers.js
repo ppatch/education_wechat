@@ -467,7 +467,7 @@ angular.module('starter.controllers', ['ionic'])
                             date: $scope.text.date,
                             openid:WEIXIN.openid,
                             wxuser:WEIXIN.wxuser,
-                            headurl:WEIXIN.headurl,
+                            headurl:WEIXIN.headurl
                         }).success(function () {
 
                         })
