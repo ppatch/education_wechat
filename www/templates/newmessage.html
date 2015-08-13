@@ -8,7 +8,9 @@
 
 
     <ion-content class="bg2" style="margin-top: 43px">
-
+        <ion-refresher on-refresh="dorefresh()"
+                       pulling-text="下拉刷新">
+        </ion-refresher>
 
         <ion-item class="list item-avatar" ng-repeat="message in one" style="margin: 10px"
                   href="#/newmessage/1/{{ message._id }}">
