@@ -403,14 +403,31 @@ angular.module('starter.controllers', ['ionic'])
                         headurl:WEIXIN.headurl
                     })
                         .success(function (data) {
-                            $scope.messageaa.answer.push({
-                                answer: $scope.form.answer,
-                                date: $scope.form.date,
-                                openid:WEIXIN.openid,
-                                wxuser:WEIXIN.wxuser,
-                                headurl:WEIXIN.headurl
+                                $scope.messageaa.answer = [];
+                                data.forEach(function (e) {
+                                    var t = {
+                                        answer: e.answer,
+                                        date: e.date
+                                    };
 
-                            });
+                                    if (e.wxuser === undefined) {
+                                        t.img = e.user.image;
+                                        t.name = e.user.name;
+                                    } else {
+                                        t.img = e.headurl;
+                                        t.name = e.wxuser;
+                                    }
+                                    $scope.messageaa.answer.push(t);
+                                })
+
+                            //$scope.messageaa.answer.push({
+                            //    //answer: $scope.form.answer,
+                            //    //date: $scope.form.date
+                            //    //openid:WEIXIN.openid,
+                            //    //wxuser:WEIXIN.wxuser,
+                            //    //headurl:WEIXIN.headurl
+                            //
+                            //});
                             $state.go('newmessage')
                         }).error(function (error) {
                             alert(error);

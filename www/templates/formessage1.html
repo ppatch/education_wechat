@@ -13,9 +13,9 @@
             <img src={{messageaa.headurl}}>
 
             <div class="text-muted" style="font-size: 10px;">{{ messageaa.date | date: 'yyyy-MM-dd HH:mm:ss' }}</div>
-            <span style="color: deepskyblue">{{messageaa.wxuser}}</span>
+            <span style="color: deepskyblue;font-size: 14px">{{messageaa.wxuser}}:</span>
 
-            <span class="item-text-wrap"style="font-size: 13px">{{ messageaa.content }}</span>
+            <span class="item-text-wrap"style="font-size: 12px">{{ messageaa.content }}</span>
         </div>
 
         <div class="padding-right padding-left">
@@ -25,7 +25,7 @@
                 <div class="text-muted" style="font-size: 10px;">{{ answer.date | date: 'yyyy-MM-dd HH:mm:ss' }}
                 </div>
 
-                <span style="color: deepskyblue">{{answer.wxuser}}</span>
+                <span style="color: deepskyblue;font-size: 14px">{{answer.wxuser}}:</span>
                 <span style="font-size: 12px"class="item-text-wrap">{{ answer.answer }}</span>
             </div>
 
