@@ -5,6 +5,7 @@ var URL = 'http://huyugui.f3322.org:3300/';
 var IMGURL = 'http://huyugui.f3322.org:3300/images/'
 var VIDEOURL = 'http://huyugui.f3322.org:3300/images/';
  var WEIXIN = {};
+var USER={image:"img/liuhuan.jpg",name:'蓝天白云培训机构'}
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state,$location,$http) {
@@ -403,31 +404,33 @@ angular.module('starter.controllers', ['ionic'])
                         headurl:WEIXIN.headurl
                     })
                         .success(function (data) {
-                                $scope.messageaa.answer = [];
-                                data.forEach(function (e) {
-                                    var t = {
-                                        answer: e.answer,
-                                        date: e.date
-                                    };
+                                //$scope.messageaa.answer = [];
+                                //data.forEach(function (e) {
+                                //    var t = {
+                                //        answer: e.answer,
+                                //        date: e.date
+                                //    };
+                                //
+                                //    if (e.wxuser === undefined) {
+                                //        t.img = e.user.image;
+                                //        t.name = e.user.name;
+                                //    } else {
+                                //        //t.img = e.headurl;
+                                //        //t.name = e.wxuser;
+                                //        t.img = USER.image;
+                                //        t.name =USER.namer;
+                                //    }
+                                //    $scope.messageaa.answer.push(t);
+                                //})
 
-                                    if (e.wxuser === undefined) {
-                                        t.img = e.user.image;
-                                        t.name = e.user.name;
-                                    } else {
-                                        t.img = e.headurl;
-                                        t.name = e.wxuser;
-                                    }
-                                    $scope.messageaa.answer.push(t);
-                                })
+                            $scope.messageaa.answer.push({
+                                answer: $scope.form.answer,
+                                date: $scope.form.date,
+                                openid:WEIXIN.openid,
+                                wxuser:WEIXIN.wxuser,
+                                headurl:WEIXIN.headurl
 
-                            //$scope.messageaa.answer.push({
-                            //    //answer: $scope.form.answer,
-                            //    //date: $scope.form.date
-                            //    //openid:WEIXIN.openid,
-                            //    //wxuser:WEIXIN.wxuser,
-                            //    //headurl:WEIXIN.headurl
-                            //
-                            //});
+                            });
                             $state.go('newmessage')
                         }).error(function (error) {
                             alert(error);
