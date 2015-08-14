@@ -431,19 +431,19 @@ angular.module('starter.controllers', ['ionic'])
                                 //    }
                                 //    $scope.messageaa.answer.push(t);
                                 //})
-                            if(data.wxuser ===undefined){
-                            $scope.messageaa.answer.push({
-                                answer: $scope.form.answer,
-                                date: $scope.form.date,
-                                wxuser:WEIXIN.wxuser,
-                                headurl:WEIXIN.headurl});
-                            }else{
-                                $scope.messageaa.answer.push({
-                                    answer: $scope.form.answer,
-                                    date: $scope.form.date,
-                                    wxuser:USER.name,
-                                    headurl:USER.image});
-                            }
+                            //if(data.wxuser ===undefined){
+                            //$scope.messageaa.answer.push({
+                            //    answer: $scope.form.answer,
+                            //    date: $scope.form.date,
+                            //    wxuser:WEIXIN.wxuser,
+                            //    headurl:WEIXIN.headurl});
+                            //}else{
+                            //    $scope.messageaa.answer.push({
+                            //        answer: $scope.form.answer,
+                            //        date: $scope.form.date,
+                            //        wxuser:USER.name,
+                            //        headurl:USER.image});
+                            //}
                             $state.go('newmessage')
                         }).error(function (error) {
                             alert(error);
