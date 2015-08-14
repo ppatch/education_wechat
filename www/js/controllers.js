@@ -1,9 +1,9 @@
 //var IMGURL = 'http://172.16.20.76:3000/images/'
 //var VIDEOURL = 'http://172.16.20.76:3000/images/';
 //var URL = 'http://172.16.20.85:3000/';
-var URL = 'http://huyugui.f3322.org:3300/';
-var IMGURL = 'http://huyugui.f3322.org:3300/images/'
-var VIDEOURL = 'http://huyugui.f3322.org:3300/images/';
+var URL = 'http://huyugui.f3322.org:3330/';
+var IMGURL = 'http://huyugui.f3322.org:3330/images/'
+var VIDEOURL = 'http://huyugui.f3322.org:3330/images/';
  var WEIXIN = {};
 var USER={image:"img/liuhuan.jpg",name:'蓝天白云培训机构'}
 angular.module('starter.controllers', ['ionic'])
@@ -413,7 +413,7 @@ angular.module('starter.controllers', ['ionic'])
                         headurl:WEIXIN.headurl
                     })
                         .success(function (data) {
-                                //$scope.messageaa.answer = [];
+                                $scope.messageaa.answer = [];
                                 //data.forEach(function (e) {
                                 //    var t = {
                                 //        answer: e.answer,
@@ -431,15 +431,19 @@ angular.module('starter.controllers', ['ionic'])
                                 //    }
                                 //    $scope.messageaa.answer.push(t);
                                 //})
-
+                            if(data.wxuser ===undefined){
                             $scope.messageaa.answer.push({
                                 answer: $scope.form.answer,
                                 date: $scope.form.date,
-                                openid:WEIXIN.openid,
                                 wxuser:WEIXIN.wxuser,
-                                headurl:WEIXIN.headurl
-
-                            });
+                                headurl:WEIXIN.headurl});
+                            }else{
+                                $scope.messageaa.answer.push({
+                                    answer: $scope.form.answer,
+                                    date: $scope.form.date,
+                                    wxuser:USER.name,
+                                    headurl:USER.image});
+                            }
                             $state.go('newmessage')
                         }).error(function (error) {
                             alert(error);
