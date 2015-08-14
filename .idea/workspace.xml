@@ -80,8 +80,8 @@
       <file leaf-file-name="controllers.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5084746">
-              <caret line="435" column="59" selection-start-line="435" selection-start-column="59" selection-end-line="435" selection-end-column="59" />
+            <state vertical-scroll-proportion="0.084745765">
+              <caret line="415" column="23" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="63" />
               <folding>
                 <element signature="n#!!doc" expanded="true" />
               </folding>
@@ -178,8 +178,8 @@
     <order />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="351" />
-    <option name="y" value="145" />
+    <option name="x" value="710" />
+    <option name="y" value="130" />
     <option name="width" value="1229" />
     <option name="height" value="828" />
   </component>
@@ -454,7 +454,7 @@
     <servers />
   </component>
   <component name="ToolWindowManager">
-    <frame x="351" y="145" width="1229" height="828" extended-state="0" />
+    <frame x="710" y="130" width="1229" height="828" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Gulp" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -973,8 +973,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/www/js/controllers.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5084746">
-          <caret line="435" column="59" selection-start-line="435" selection-start-column="59" selection-end-line="435" selection-end-column="59" />
+        <state vertical-scroll-proportion="0.084745765">
+          <caret line="415" column="23" selection-start-line="415" selection-start-column="23" selection-end-line="415" selection-end-column="63" />
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
