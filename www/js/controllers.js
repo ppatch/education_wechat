@@ -349,11 +349,9 @@ angular.module('starter.controllers', ['ionic'])
             $scope.back = function () {
                 $state.go('home');
             }
-        $http.get(URL + 'message')
+        $http.get(URL + 'message', {params: {openid: WEIXIN.openid}})
             .success(function (data) {
-                if(data.openid=WEIXIN.openid) {
-                    $scope.one = data;
-                }
+                $scope.one=data;
             }).error(function (error) {
                 alert(error);
             }).finally()
