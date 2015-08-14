@@ -60,18 +60,23 @@ angular.module('starter.controllers', ['ionic'])
             $state.go("phone");
         }
         $scope.goto9 = function () {
-
+            if(WEIXIN.wxuser===undefined) {
+                WEIXIN =
+                {
+                    wxuser: '路人甲',
+                    headurl: "img/ionic.png",
+                    openid: $location.search().Openid
+                }
+            }else{
+                WEIXIN = {
+                    wxuser: $location.search().name,
+                    headurl: $location.search().headimgurl,
+                    openid: $location.search().Openid
+                };
+            }
             $state.go("newmessage");
-        //    $http.post(URL + 'weixin', {
-        //        wxuser: WEIXIN.wxuser,
-        //        headurl: WEIXIN.headurl,
-        //        openid:WEIXIN.openid
-        //    })
-        //        .success(function () {
-        //
-        //        }).error(function (error) {
-        //            alert(error);
-        //        }).finally();
+
+
         }
     })
 //活动
