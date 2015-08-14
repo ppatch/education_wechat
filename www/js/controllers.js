@@ -349,7 +349,7 @@ angular.module('starter.controllers', ['ionic'])
 
     })
 //留言展示
-    .controller('NewmessageCtrl', function ($scope, $http, $state) {
+    .controller('NewmessageCtrl', function ($scope, $http, $state,$ionicPopup) {
 
             $scope.back = function () {
                 $state.go('home');
@@ -378,7 +378,7 @@ angular.module('starter.controllers', ['ionic'])
             $scope.newmessage = function () {
                 $state.go('newmessage-1');
             }
-        $scope.remove = function(index){
+        $scope.delete = function(index){
             $ionicPopup.confirm({
                 title: '提示',
                 template: '确定要删除吗？',
@@ -391,7 +391,7 @@ angular.module('starter.controllers', ['ionic'])
                         params: $scope.one[index]
                     }).success(function(){
                         alert('删除成功');
-                        $state.go('tab.home')
+                        $state.go('home')
                     })
                 }
             });
