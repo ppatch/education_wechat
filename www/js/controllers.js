@@ -5,7 +5,7 @@ var URL = 'http://huyugui.f3322.org:3330/';
 var IMGURL = 'http://huyugui.f3322.org:3330/images/'
 var VIDEOURL = 'http://huyugui.f3322.org:3330/images/';
  var WEIXIN = {};
-var USER={image:"img/liuhuan.jpg",name:'蓝天白云培训机构'}
+var USER={image:"img/lantianbaiyun.jpeg",name:'蓝天白云培训机构'}
 angular.module('starter.controllers', ['ionic'])
 //主页
     .controller('HomeCtrl', function ($scope, $state,$location,$http) {
