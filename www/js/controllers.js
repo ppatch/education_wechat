@@ -378,11 +378,24 @@ angular.module('starter.controllers', ['ionic'])
             $scope.newmessage = function () {
                 $state.go('newmessage-1');
             }
-            //$http.get(URL+'message')
-            //    .success(function (da) {
-            //        $scope.mymessage = da;
-            //
-            //    });
+        $scope.remove = function(index){
+            $ionicPopup.confirm({
+                title: '提示',
+                template: '确定要删除吗？',
+                cancelText: '我再想想',
+                okText: '是的'
+            }).then(function (res) {
+                if (res == true) {
+                    $http.delete(URL+'deletemessage',{
+
+                        params: $scope.one[index]
+                    }).success(function(){
+                        alert('删除成功');
+                        $state.go('tab.home')
+                    })
+                }
+            });
+        };
     })
 //单个留言（能回复）
     .controller('formessage1Ctrl', function ($scope, $state, $http, $rootScope, $stateParams, $ionicLoading, $timeout, $routeParams) {

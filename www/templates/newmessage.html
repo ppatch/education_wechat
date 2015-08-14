@@ -26,6 +26,9 @@
             <div style="margin-left: 45%;font-size: 10px;float: right">
                 {{message.date|date:'yyyy-MM-dd HH:mm:ss'}}
             </div>
+            <ion-option-button class="button-assertive" ng-click="remove($index)">
+                Delete
+            </ion-option-button>
         </ion-item>
     </ion-content>
 </ion-view>
